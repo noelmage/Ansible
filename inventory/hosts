@@ -2,10 +2,10 @@
 ubuntu-main.henry.house
 ansible.internal.henry.house
 amp.henry.house
-ampsvr01.internal.henry.house
+ampsvr01.henry.house
 
 [RHEL]
-wazuh.henry.house
+#wazuh.henry.house
 Cloudflared.henry.house
 
 [Debian]
