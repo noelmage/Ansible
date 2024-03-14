@@ -1,0 +1,12 @@
+[ubuntu]
+ubuntu-main.henry.house
+ansible.internal.henry.house
+amp.henry.house
+ampsvr01.internal.henry.house
+
+[RHEL]
+wazuh.henry.house
+Cloudflared.henry.house
+
+[Debian]
+homepage.henry.house
