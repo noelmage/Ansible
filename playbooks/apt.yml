@@ -1,5 +1,5 @@
-- hosts: "*"
-  become: yes
+- hosts: "ubuntu"
+  become: true
   tasks:
     - name: apt
       apt:

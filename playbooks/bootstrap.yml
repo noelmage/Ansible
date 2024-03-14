@@ -4,19 +4,34 @@
   become: true
   pre_tasks:
 
-  - name: install updates (CentOS)
+  - name: install updates (RHEL)
     tags: always
-    dnf:
-      update_only: yes
-      update_cache: yes
-    when: ansible_distribution == "CentOS"
+    yum:
+      update_only: true
+      update_cache: true
+      state: latest
+    when: ansible_distribution == "RedHat"
  
-  - name: install updates (Ubuntu)
+  - name: install updates (Ubuntu/Debian)
     tags: always
     apt:
       upgrade: dist
-      update_cache: yes
-    when: ansible_distribution == "Ubuntu"
+      update_cache: true
+    when: ansible_distribution == "Ubuntu" or ansible_distribution == "Debian"
+
+
+  - name: install qemu agent (RHEL)
+    yum:
+      name: qemu-guest-agent
+      state: latest
+    when: ansible_distribution == "RedHat"
+
+  - name: install qemu agent (Ubuntu/Debian)
+    apt:
+      name: qemu-guest-agent
+      state: latest
+    when: ansible_distribution == "Ubuntu" or ansible_distribution == "Debian"
+
  
 - hosts: all
   become: true
